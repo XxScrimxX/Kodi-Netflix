@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Home screen building blocks for Unknown: hero banner variables and poster rows. -->
+<includes>
+	<!-- While a poster row has focus, the hero area describes the focused poster instead of the featured movie. -->
+	<expression name="unknown_row_focused">ControlGroup(5000).HasFocus</expression>
+	<expression name="unknown_hero_active">!String.IsEmpty(Window(Home).Property(Unknown.Hero.Active))</expression>
+	<expression name="unknown_no_logo">[$EXP[unknown_row_focused] + String.IsEmpty(Container.ListItem.Art(clearlogo)) + String.IsEmpty(Container.ListItem.Art(tvshow.clearlogo))] | [!$EXP[unknown_row_focused] + String.IsEmpty(Window(Home).Property(Unknown.Hero.ClearLogo))]</expression>
+
+	<variable name="UnknownBackdropVar">
+		<value condition="$EXP[unknown_row_focused] + !String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
+		<value condition="$EXP[unknown_row_focused] + !String.IsEmpty(Container.ListItem.Art(tvshow.fanart))">$INFO[Container.ListItem.Art(tvshow.fanart)]</value>
+		<value>$INFO[Window(Home).Property(Unknown.Hero.Fanart)]</value>
+	</variable>
+	<variable name="UnknownClearLogoVar">
+		<value condition="$EXP[unknown_row_focused] + !String.IsEmpty(Container.ListItem.Art(clearlogo))">$INFO[Container.ListItem.Art(clearlogo)]</value>
+		<value condition="$EXP[unknown_row_focused]">$INFO[Container.ListItem.Art(tvshow.clearlogo)]</value>
+		<value>$INFO[Window(Home).Property(Unknown.Hero.ClearLogo)]</value>
+	</variable>
+	<variable name="UnknownTitleVar">
+		<value condition="$EXP[unknown_row_focused] + String.IsEqual(Container.ListItem.DBType,episode)">$INFO[Container.ListItem.TVShowTitle]</value>
+		<value condition="$EXP[unknown_row_focused]">$INFO[Container.ListItem.Title]</value>
+		<value>$INFO[Window(Home).Property(Unknown.Hero.Title)]</value>
+	</variable>
+	<variable name="UnknownMetaVar">
+		<value condition="$EXP[unknown_row_focused] + String.IsEqual(Container.ListItem.DBType,episode)">$INFO[Container.ListItem.Season,Season ,]$INFO[Container.ListItem.Episode,  ∙  Episode ,]$INFO[Container.ListItem.Title,  ∙  ,]</value>
+		<value condition="$EXP[unknown_row_focused] + String.IsEqual(Container.ListItem.DBType,tvshow)">$INFO[Container.ListItem.Year]$INFO[Container.ListItem.Genre,  ∙  ,]$INFO[Container.ListItem.Property(TotalEpisodes),  ∙  , episodes]</value>
+		<value condition="$EXP[unknown_row_focused]">$INFO[Container.ListItem.Year]$INFO[Container.ListItem.Genre,  ∙  ,]$INFO[Container.ListItem.Duration(mins),  ∙  , min]</value>
+		<value>$INFO[Window(Home).Property(Unknown.Hero.Year)]$INFO[Window(Home).Property(Unknown.Hero.Genre),  ∙  ,]$INFO[Window(Home).Property(Unknown.Hero.Runtime),  ∙  ,]$INFO[Window(Home).Property(Unknown.Hero.MPAA),  ∙  ,]</value>
+	</variable>
+	<variable name="UnknownPlotVar">
+		<value condition="$EXP[unknown_row_focused]">$INFO[Container.ListItem.Plot]</value>
+		<value>$INFO[Window(Home).Property(Unknown.Hero.Plot)]</value>
+	</variable>
+	<variable name="UnknownPosterVar">
+		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value>$INFO[ListItem.Icon]</value>
+	</variable>
+
+	<include name="UnknownNavButton">
+		<definition>
+			<control type="button" id="$PARAM[id]">
+				<width>auto</width>
+				<height>60</height>
+				<textoffsetx>18</textoffsetx>
+				<aligny>center</aligny>
+				<font>font27</font>
+				<textcolor>grey</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<texturefocus colordiffuse="unknown_accent">unknown/underline.png</texturefocus>
+				<texturenofocus />
+				<label>$PARAM[label]</label>
+				<onclick>$PARAM[onclick]</onclick>
+			</control>
+		</definition>
+	</include>
+
+	<include name="UnknownHeroButton">
+		<definition>
+			<control type="button" id="$PARAM[id]">
+				<width>260</width>
+				<height>70</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font27</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<texturefocus border="23" colordiffuse="unknown_accent">buttons/dialogbutton-fo.png</texturefocus>
+				<texturenofocus border="23" colordiffuse="40FFFFFF">buttons/dialogbutton-fo.png</texturenofocus>
+				<label>$PARAM[label]</label>
+				<onclick>$PARAM[onclick]</onclick>
+			</control>
+		</definition>
+	</include>
+
+	<!-- One poster in a row: artwork, watched/resume badge, and a resume progress bar. -->
+	<include name="UnknownPosterItem">
+		<control type="image">
+			<left>15</left>
+			<top>20</top>
+			<width>200</width>
+			<height>300</height>
+			<aspectratio>scale</aspectratio>
+			<texture fallback="DefaultVideo.png" background="true">$VAR[UnknownPosterVar]</texture>
+		</control>
+		<control type="image">
+			<left>179</left>
+			<top>26</top>
+			<width>30</width>
+			<height>30</height>
+			<texture>$VAR[WallWatchedIconVar]</texture>
+		</control>
+		<control type="progress">
+			<left>15</left>
+			<top>326</top>
+			<width>200</width>
+			<height>8</height>
+			<texturebg colordiffuse="60FFFFFF">unknown/white.png</texturebg>
+			<midtexture colordiffuse="unknown_accent">unknown/white.png</midtexture>
+			<info>ListItem.PercentPlayed</info>
+			<visible>ListItem.IsResumable</visible>
+		</control>
+	</include>
+
+	<!-- A titled horizontal row of posters. Hides itself when its content is empty.
+	     The label and list must be direct children of the rows grouplist (5000): a grouplist only wires
+	     up/down remote navigation between its direct children, and it follows that navigation through
+	     the label ids and past hidden (empty) rows. Wrapping them in a group leaves the list with no
+	     up/down actions, which traps focus inside the row. -->
+	<include name="UnknownPosterRow">
+		<param name="target">videos</param>
+		<definition>
+			<control type="label" id="$PARAM[row_id]9">
+				<left>80</left>
+				<top>0</top>
+				<width>1400</width>
+				<height>50</height>
+				<aligny>center</aligny>
+				<font>font32_title</font>
+				<textcolor>white</textcolor>
+				<label>$PARAM[header]</label>
+				<visible>Integer.IsGreater(Container($PARAM[row_id]).NumItems,0) | Container($PARAM[row_id]).IsUpdating</visible>
+			</control>
+			<control type="list" id="$PARAM[row_id]">
+				<left>65</left>
+				<!-- The rows grouplist uses control coords with itemgap -50, so this list's slot starts at its
+				     label's slot: scrolling to a row keeps its title in view. The extra 50px at the bottom
+				     (height 405 for 355px items) is what the next label overlaps. -->
+				<top>50</top>
+				<width>1855</width>
+				<height>405</height>
+				<orientation>horizontal</orientation>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<scrolltime tween="cubic" easing="out">300</scrolltime>
+				<preloaditems>1</preloaditems>
+				<visible>Integer.IsGreater(Container($PARAM[row_id]).NumItems,0) | Container($PARAM[row_id]).IsUpdating</visible>
+				<itemlayout width="230" height="355">
+					<include>UnknownPosterItem</include>
+				</itemlayout>
+				<focusedlayout width="230" height="355">
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<animation effect="zoom" start="100" end="108" time="200" tween="sine" easing="inout" center="115,170" condition="Control.HasFocus($PARAM[row_id])">Conditional</animation>
+						<control type="image">
+							<left>11</left>
+							<top>16</top>
+							<width>208</width>
+							<height>308</height>
+							<texture colordiffuse="unknown_accent">unknown/white.png</texture>
+							<visible>Control.HasFocus($PARAM[row_id])</visible>
+						</control>
+						<include>UnknownPosterItem</include>
+					</control>
+				</focusedlayout>
+				<content target="$PARAM[target]">$PARAM[content_path]</content>
+			</control>
+		</definition>
+	</include>
+</includes>

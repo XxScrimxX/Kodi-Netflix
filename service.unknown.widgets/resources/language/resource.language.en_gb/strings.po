@@ -1,0 +1,64 @@
+# Kodi Media Center language file
+# Addon Name: Unknown Widgets
+# Addon id: service.unknown.widgets
+# Addon Provider: unknown
+msgid ""
+msgstr ""
+"Project-Id-Version: service.unknown.widgets\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30000"
+msgid "Widgets"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Items per row"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Hide watched items in Recently added"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Featured banner"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Rotate every (seconds)"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Pick featured movies from"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Random unwatched movies"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Recently added movies"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Movies in progress"
+msgstr ""
+
+msgctxt "#30100"
+msgid "Continue watching"
+msgstr ""
+
+msgctxt "#30101"
+msgid "Recently added"
+msgstr ""
+
+msgctxt "#30102"
+msgid "Random picks"
+msgstr ""
+
+msgctxt "#30103"
+msgid "Featured"
+msgstr ""

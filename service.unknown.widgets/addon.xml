@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="service.unknown.widgets" version="1.0.0" name="Unknown Widgets" provider-name="unknown">
+	<requires>
+		<import addon="xbmc.python" version="3.0.1"/>
+	</requires>
+	<!-- Keeps widget rows fresh and rotates the featured banner. -->
+	<extension point="xbmc.service" library="service.py" start="login"/>
+	<!-- Serves the widget rows: plugin://service.unknown.widgets/?list=continue|recent|random|featured -->
+	<extension point="xbmc.python.pluginsource" library="plugin.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<license>GPL-2.0-or-later</license>
+		<summary lang="en_GB">Home screen widgets for the Unknown skin.</summary>
+		<description lang="en_GB">Provides Continue Watching, Recently Added, Random Picks and a rotating featured banner from your video library.</description>
+	</extension>
+</addon>

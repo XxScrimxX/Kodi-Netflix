@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Unknown home: top navigation, a featured hero banner, and poster rows fed by service.unknown.widgets. -->
+<window>
+	<defaultcontrol always="true">3000</defaultcontrol>
+	<onload condition="!$EXP[unknown_hero_active]">SetFocus(9000)</onload>
+	<backgroundcolor>background</backgroundcolor>
+	<controls>
+		<include>DefaultBackground</include>
+
+		<!-- Backdrop: follows the focused poster, otherwise the featured movie -->
+		<control type="group">
+			<depth>DepthBackground</depth>
+			<visible>!Player.HasVideo</visible>
+			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+			<control type="image">
+				<include>FullScreenDimensions</include>
+				<texture>colors/black.png</texture>
+			</control>
+			<control type="image">
+				<right>0</right>
+				<top>0</top>
+				<width>1440</width>
+				<height>810</height>
+				<aspectratio>scale</aspectratio>
+				<fadetime>400</fadetime>
+				<texture background="true">$VAR[UnknownBackdropVar]</texture>
+			</control>
+			<control type="image">
+				<left>480</left>
+				<top>0</top>
+				<width>960</width>
+				<height>810</height>
+				<texture>unknown/gradient-left.png</texture>
+			</control>
+			<control type="image">
+				<left>480</left>
+				<top>410</top>
+				<width>1440</width>
+				<height>400</height>
+				<texture>unknown/gradient-bottom.png</texture>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>220</height>
+				<texture flipy="true" colordiffuse="B0FFFFFF">unknown/gradient-bottom.png</texture>
+			</control>
+		</control>
+
+		<!-- Top navigation -->
+		<control type="group">
+			<depth>DepthBars</depth>
+			<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+			<control type="label">
+				<left>80</left>
+				<top>36</top>
+				<width>340</width>
+				<height>60</height>
+				<aligny>center</aligny>
+				<font>font45_title</font>
+				<textcolor>unknown_accent</textcolor>
+				<label>UNKNOWN</label>
+			</control>
+			<control type="grouplist" id="9000">
+				<left>420</left>
+				<top>36</top>
+				<width>1180</width>
+				<height>60</height>
+				<orientation>horizontal</orientation>
+				<itemgap>8</itemgap>
+				<onup>noop</onup>
+				<ondown condition="$EXP[unknown_hero_active]">SetFocus(3000)</ondown>
+				<ondown condition="!$EXP[unknown_hero_active]">SetFocus(5000)</ondown>
+				<include content="UnknownNavButton">
+					<param name="id" value="9001"/>
+					<param name="label" value="$LOCALIZE[342]"/>
+					<param name="onclick" value="ActivateWindow(Videos,videodb://movies/titles/,return)"/>
+				</include>
+				<include content="UnknownNavButton">
+					<param name="id" value="9002"/>
+					<param name="label" value="$LOCALIZE[20343]"/>
+					<param name="onclick" value="ActivateWindow(Videos,videodb://tvshows/titles/,return)"/>
+				</include>
+				<include content="UnknownNavButton">
+					<param name="id" value="9003"/>
+					<param name="label" value="$LOCALIZE[2]"/>
+					<param name="onclick" value="ActivateWindow(Music,root,return)"/>
+				</include>
+				<include content="UnknownNavButton">
+					<param name="id" value="9004"/>
+					<param name="label" value="$LOCALIZE[24001]"/>
+					<param name="onclick" value="ActivateWindow(AddonBrowser)"/>
+				</include>
+				<include content="UnknownNavButton">
+					<param name="id" value="9005"/>
+					<param name="label" value="$LOCALIZE[10134]"/>
+					<param name="onclick" value="ActivateWindow(FavouritesBrowser)"/>
+				</include>
+				<include content="UnknownNavButton">
+					<param name="id" value="9006"/>
+					<param name="label" value="$LOCALIZE[137]"/>
+					<param name="onclick" value="ActivateWindow(1107)"/>
+				</include>
+				<include content="UnknownNavButton">
+					<param name="id" value="9007"/>
+					<param name="label" value="$LOCALIZE[21417]"/>
+					<param name="onclick" value="ActivateWindow(Settings)"/>
+				</include>
+				<include content="UnknownNavButton">
+					<param name="id" value="9008"/>
+					<param name="label" value="$LOCALIZE[33060]"/>
+					<param name="onclick" value="ActivateWindow(ShutdownMenu)"/>
+				</include>
+			</control>
+			<control type="label">
+				<right>80</right>
+				<top>36</top>
+				<width>240</width>
+				<height>60</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>font27</font>
+				<textcolor>white</textcolor>
+				<label>$INFO[System.Time]</label>
+			</control>
+		</control>
+
+		<!-- Hero: the featured movie, or whichever poster has focus -->
+		<control type="group">
+			<left>80</left>
+			<top>150</top>
+			<width>1000</width>
+			<height>460</height>
+			<animation effect="fade" time="300">VisibleChange</animation>
+			<visible>$EXP[unknown_hero_active] | $EXP[unknown_row_focused]</visible>
+			<control type="image">
+				<top>0</top>
+				<width>640</width>
+				<height>180</height>
+				<aspectratio align="left" aligny="bottom">keep</aspectratio>
+				<fadetime>200</fadetime>
+				<texture background="true">$VAR[UnknownClearLogoVar]</texture>
+				<visible>!$EXP[unknown_no_logo]</visible>
+			</control>
+			<control type="label">
+				<top>80</top>
+				<width>1000</width>
+				<height>100</height>
+				<aligny>bottom</aligny>
+				<font>font52_title</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>text_shadow</shadowcolor>
+				<label>$VAR[UnknownTitleVar]</label>
+				<visible>$EXP[unknown_no_logo]</visible>
+			</control>
+			<control type="label">
+				<top>195</top>
+				<width>1000</width>
+				<height>40</height>
+				<font>font27</font>
+				<textcolor>white</textcolor>
+				<label>$VAR[UnknownMetaVar]</label>
+			</control>
+			<control type="textbox">
+				<top>245</top>
+				<width>880</width>
+				<!-- Exactly three lines of font27, so a fourth line is never half-drawn -->
+				<height>112</height>
+				<font>font27</font>
+				<textcolor>FFD0D0D0</textcolor>
+				<label>$VAR[UnknownPlotVar]</label>
+			</control>
+			<control type="grouplist" id="3000">
+				<top>385</top>
+				<width>1000</width>
+				<height>70</height>
+				<orientation>horizontal</orientation>
+				<itemgap>20</itemgap>
+				<onup>9000</onup>
+				<ondown>5000</ondown>
+				<visible allowhiddenfocus="true">$EXP[unknown_hero_active] + !$EXP[unknown_row_focused]</visible>
+				<include content="UnknownHeroButton">
+					<param name="id" value="3001"/>
+					<param name="label" value="$LOCALIZE[31900]"/>
+					<param name="onclick" value="PlayMedia($INFO[Window(Home).Property(Unknown.Hero.File)])"/>
+				</include>
+				<include content="UnknownHeroButton">
+					<param name="id" value="3002"/>
+					<param name="label" value="$LOCALIZE[31901]"/>
+					<param name="onclick" value="RunPlugin(plugin://service.unknown.widgets/?action=info&amp;dbid=$INFO[Window(Home).Property(Unknown.Hero.DBID)])"/>
+				</include>
+			</control>
+		</control>
+
+		<!-- Poster rows -->
+		<control type="grouplist" id="5000">
+			<left>0</left>
+			<top>620</top>
+			<width>1920</width>
+			<height>460</height>
+			<orientation>vertical</orientation>
+			<!-- Each row's list is offset 50px under its label; see UnknownPosterRow in Includes_Unknown.xml -->
+			<usecontrolcoords>true</usecontrolcoords>
+			<itemgap>-50</itemgap>
+			<scrolltime tween="cubic" easing="out">300</scrolltime>
+			<onup condition="$EXP[unknown_hero_active]">SetFocus(3000)</onup>
+			<onup condition="!$EXP[unknown_hero_active]">SetFocus(9000)</onup>
+			<ondown>noop</ondown>
+			<!-- With the widgets service: rows mix movies and TV and refresh when the library changes -->
+			<include content="UnknownPosterRow" condition="System.AddonIsEnabled(service.unknown.widgets)">
+				<param name="row_id" value="5100"/>
+				<param name="header" value="$LOCALIZE[31902]"/>
+				<param name="content_path" value="plugin://service.unknown.widgets/?list=continue&amp;token=$INFO[Window(Home).Property(Unknown.Widgets.Token)]"/>
+			</include>
+			<include content="UnknownPosterRow" condition="System.AddonIsEnabled(service.unknown.widgets)">
+				<param name="row_id" value="5200"/>
+				<param name="header" value="$LOCALIZE[31903]"/>
+				<param name="content_path" value="plugin://service.unknown.widgets/?list=recent&amp;token=$INFO[Window(Home).Property(Unknown.Widgets.Token)]"/>
+			</include>
+			<include content="UnknownPosterRow" condition="System.AddonIsEnabled(service.unknown.widgets)">
+				<param name="row_id" value="5300"/>
+				<param name="header" value="$LOCALIZE[31904]"/>
+				<param name="content_path" value="plugin://service.unknown.widgets/?list=random&amp;token=$INFO[Window(Home).Property(Unknown.Widgets.Token)]"/>
+			</include>
+			<!-- Without the service: Estuary's smart playlists -->
+			<include content="UnknownPosterRow" condition="!System.AddonIsEnabled(service.unknown.widgets)">
+				<param name="row_id" value="5100"/>
+				<param name="header" value="$LOCALIZE[31010]"/>
+				<param name="content_path" value="special://skin/playlists/inprogress_movies.xsp"/>
+			</include>
+			<include content="UnknownPosterRow" condition="!System.AddonIsEnabled(service.unknown.widgets)">
+				<param name="row_id" value="5200"/>
+				<param name="header" value="$LOCALIZE[20386]"/>
+				<param name="content_path" value="special://skin/playlists/recent_unwatched_movies.xsp"/>
+			</include>
+			<include content="UnknownPosterRow" condition="!System.AddonIsEnabled(service.unknown.widgets)">
+				<param name="row_id" value="5300"/>
+				<param name="header" value="$LOCALIZE[20387]"/>
+				<param name="content_path" value="special://skin/playlists/recent_unwatched_episodes.xsp"/>
+			</include>
+			<include content="UnknownPosterRow" condition="!System.AddonIsEnabled(service.unknown.widgets)">
+				<param name="row_id" value="5400"/>
+				<param name="header" value="$LOCALIZE[31006]"/>
+				<param name="content_path" value="special://skin/playlists/random_movies.xsp"/>
+			</include>
+		</control>
+	</controls>
+</window>

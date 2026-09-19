@@ -1,0 +1,96 @@
+# Kodi Media Center language file
+# Addon Name: Unknown Debrid
+# Addon id: plugin.video.unknown.debrid
+# Addon Provider: unknown
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin.video.unknown.debrid\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30000"
+msgid "Real-Debrid"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Link Real-Debrid account"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Private API token (advanced)"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Found at real-debrid.com/apitoken. Only needed if linking with a code fails."
+msgstr ""
+
+msgctxt "#30010"
+msgid "Library sync"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Sync when Kodi starts"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Re-sync every (minutes, 0 = never)"
+msgstr ""
+
+msgctxt "#30013"
+msgid "Scan into the video library after syncing"
+msgstr ""
+
+msgctxt "#30014"
+msgid "Remove deleted torrents from the video library"
+msgstr ""
+
+msgctxt "#30015"
+msgid "Sync library now"
+msgstr ""
+
+msgctxt "#30016"
+msgid "Remove all synced files"
+msgstr ""
+
+msgctxt "#30017"
+msgid "Force English audio track"
+msgstr ""
+
+msgctxt "#30018"
+msgid "Selects the English audio track automatically when a torrent contains multiple languages."
+msgstr ""
+
+msgctxt "#30020"
+msgid "My Movies"
+msgstr ""
+
+msgctxt "#30021"
+msgid "My TV Shows"
+msgstr ""
+
+msgctxt "#30022"
+msgid "All Torrents"
+msgstr ""
+
+msgctxt "#30023"
+msgid "Sync library now"
+msgstr ""
+
+msgctxt "#30024"
+msgid "Settings"
+msgstr ""
+
+msgctxt "#30025"
+msgid "Authorize Real-Debrid"
+msgstr ""
+
+msgctxt "#30026"
+msgid "Re-authorize Real-Debrid"
+msgstr ""
+
+msgctxt "#30027"
+msgid "About Unknown Debrid"
+msgstr ""

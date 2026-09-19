@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+	<category label="30000">
+		<setting id="auth_action" type="action" label="30001" action="RunPlugin(plugin://plugin.video.unknown.debrid/?action=auth)"/>
+		<setting id="api_token" type="string" label="30003" help="30004" default=""/>
+		<setting id="access_token" type="string" visible="false" default=""/>
+		<setting id="refresh_token" type="string" visible="false" default=""/>
+		<setting id="token_expires" type="string" visible="false" default="0"/>
+		<setting id="client_id" type="string" visible="false" default=""/>
+		<setting id="client_secret" type="string" visible="false" default=""/>
+	</category>
+	<category label="30010">
+		<setting id="sync_on_startup" type="bool" label="30011" default="true"/>
+		<setting id="sync_interval" type="slider" label="30012" default="30" range="0,15,120" option="int"/>
+		<setting id="auto_scan" type="bool" label="30013" default="true"/>
+		<setting id="auto_clean" type="bool" label="30014" default="true"/>
+		<setting id="sync_now" type="action" label="30015" action="RunPlugin(plugin://plugin.video.unknown.debrid/?action=sync)"/>
+		<setting id="clear_library" type="action" label="30016" action="RunPlugin(plugin://plugin.video.unknown.debrid/?action=clear)"/>
+		<setting id="force_english_audio" type="bool" label="30017" help="30018" default="true"/>
+	</category>
+</settings>

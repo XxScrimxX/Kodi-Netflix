@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+	<category label="30000">
+		<setting id="widget_limit" type="slider" label="30001" default="10" range="5,5,50" option="int"/>
+		<setting id="hide_watched_recent" type="bool" label="30002" default="false"/>
+	</category>
+	<category label="30003">
+		<setting id="hero_interval" type="slider" label="30004" default="10" range="5,5,60" option="int"/>
+		<setting id="hero_source" type="enum" label="30005" lvalues="30010|30011|30012" default="0"/>
+	</category>
+</settings>

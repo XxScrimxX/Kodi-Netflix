@@ -1,0 +1,27 @@
+# Build output
+dist/
+repo/
+
+# Runtime / repo-server logs
+repo-server.log
+
+# Python
+__pycache__/
+*.pyc
+
+# Dev-only generated library (placeholder TMDb content with fake strm paths)
+test-library/
+
+# Dev cleanup scripts leave DB backups next to the source tree if run in-place
+*.db
+*.db.bak
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# User-local Kodi data (PC dev instance)
+userdata/
+addon_data/
