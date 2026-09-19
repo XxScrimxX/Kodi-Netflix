@@ -167,7 +167,7 @@ publish-update.bat         one-click publish: build + push the repository to Git
 
 ## Disclaimer
 
-This project is an unofficial integration with Real-Debrid. You are responsible for your Real-Debrid account, what you store there, and what you stream. The authors do not host, control, or profit from any content; the software merely presents the user's own torrent data as a Kodi library. Use legally and at your own risk.
+This project is an unofficial integration with Real-Debrid. You are responsible for your Real-Debrid account, including what you store, what you stream, and how you use it in general. I am not responsible for how you choose to use the service. I do not host, control, or profit from any of the content used with this project or your Real-Debrid account. This project simply allows users to access their own content in an environment that most people are already familiar with, such as Netflix. Please use the project responsibly and at your own risk.
 
 ## License
 
