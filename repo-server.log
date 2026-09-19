@@ -1,0 +1,31 @@
+2026-09-15 18:40:33,158 Serving D:\projects\kodi\repo on port 8000
+2026-09-15 18:40:37,384 192.168.0.117 "GET /addons.xml.md5 HTTP/1.1" 200 -
+2026-09-15 18:40:37,401 192.168.0.117 "GET /addons.xml HTTP/1.1" 200 -
+2026-09-15 18:40:37,417 192.168.0.117 "GET /repository.unknown-1.0.0.zip HTTP/1.1" 200 -
+2026-09-15 18:40:37,427 192.168.0.117 "GET /skin.unknown/skin.unknown-1.0.1.zip HTTP/1.1" 200 -
+2026-09-15 18:41:30,610 192.168.0.117 "GET / HTTP/1.1" 200 -
+2026-09-15 18:41:31,087 192.168.0.117 code 404, message File not found
+2026-09-15 18:41:31,087 192.168.0.117 "GET /favicon.ico HTTP/1.1" 404 -
+2026-09-15 18:49:29,645 Serving D:\projects\kodi\repo on port 8000
+2026-09-15 18:49:33,610 192.168.0.117 "GET /addons.xml.md5 HTTP/1.1" 200 - [Mozilla/5.0 (Windows NT; Windows NT 10.0; en-GB) WindowsPowerShell/5.1.26100.9444]
+2026-09-15 20:30:43,806 Serving D:\projects\kodi\repo on port 8000
+2026-09-16 01:09:35,158 Serving D:\projects\kodi\repo on port 8000
+2026-09-16 12:36:59,408 Serving D:\projects\kodi\repo on port 8000
+2026-09-16 15:21:37,717 Serving D:\projects\kodi\repo on port 8000
+2026-09-16 17:05:57,837 Serving D:\projects\kodi\repo on port 8000
+2026-09-16 20:32:28,192 Serving D:\projects\kodi\repo on port 8000
+2026-09-16 22:26:30,325 Serving D:\projects\kodi\repo on port 8000
+2026-09-17 02:19:32,687 Serving D:\projects\kodi\repo on port 8000
+2026-09-17 11:29:54,200 Serving D:\projects\kodi\repo on port 8000
+2026-09-17 17:34:40,132 Serving D:\projects\kodi\repo on port 8000
+2026-09-17 21:08:02,459 Serving D:\projects\kodi\repo on port 8000
+2026-09-18 00:40:44,593 Serving D:\projects\kodi\repo on port 8000
+2026-09-18 13:10:42,293 Serving D:\projects\kodi\repo on port 8000
+2026-09-18 15:33:41,316 Serving D:\projects\kodi\repo on port 8000
+2026-09-18 17:28:39,411 Serving D:\projects\kodi\repo on port 8000
+2026-09-18 19:17:38,248 Serving D:\projects\kodi\repo on port 8000
+2026-09-18 20:57:54,222 Serving D:\projects\kodi\repo on port 8000
+2026-09-18 21:50:42,837 Serving D:\projects\kodi\repo on port 8000
+2026-09-18 23:53:54,954 Serving D:\projects\kodi\repo on port 8000
+2026-09-19 11:41:33,166 Serving D:\projects\kodi\repo on port 8000
+2026-09-19 15:27:13,559 Serving D:\projects\kodi\repo on port 8000
