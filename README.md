@@ -21,7 +21,7 @@ Your Kodi home becomes a streaming box: **Continue Watching**, **Recently Added*
 - **Audio forcing** — multi-language torrents (e.g. Russian releases with an English track) automatically switch to English on playback.
 - **Two-way sync** — remove a torrent or season on Real-Debrid and it leaves your library on the next sync.
 - **First-use wizard** — boots with Kodi, links your account, runs the first sync, all unattended.
-- - **Customization** — within the code, you are able to change the name and theme colour of the UI.
+- **Customization** — within the code, you are able to change the name and theme colour of the UI.
 
 ## What's in the repo
 
